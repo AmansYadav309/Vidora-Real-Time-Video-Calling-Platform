@@ -27,7 +27,7 @@ const LandingPage = () => {
             <div className="w-[45%]">
                 <h2 className="text-white text-[4rem]  font-semibold   " > <samp className = "text-orange-500">Connect</samp> with your Loved Ones</h2>
                 <p className="  text-gray-400 text-[1.3rem]" > Cover a distance by apna video call</p>
-                <div role="button" className="text-white bg-orange-500 w-fit px-4 py-2  rounded-xl mt-8 "> <Link to="/AuthsignUp" className="text-[1.3rem]" >Get stated </Link> 
+                <div role="button" className="text-white bg-orange-500 w-fit px-4 py-2  rounded-xl mt-8 "> <Link to="/Auth" className="text-[1.3rem]" >Get stated </Link> 
                 </div>
 
             </div>
