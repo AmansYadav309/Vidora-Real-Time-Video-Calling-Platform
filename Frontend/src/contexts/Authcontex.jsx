@@ -1,5 +1,5 @@
 import axios from "axios";
- import httpStatus from "http-status";
+import httpStatus from "http-status";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +22,7 @@ export const AuthProvider = ({children})=>{
                 password : password 
             })
 
-            if(request.status===httpStatus.CREATED){
+            if(request.status===httpStatus.OK){
                 return request.data.message;
             }
         } catch (error) {
@@ -38,6 +38,7 @@ export const AuthProvider = ({children})=>{
             });
             if(request.status=== httpStatus.OK){
                 localStorage.setItem("token", request.data.token)
+                router("/")
             }  
         } catch (error) {
             throw error;
@@ -47,7 +48,7 @@ export const AuthProvider = ({children})=>{
     const router = useNavigate();
 
     const data ={ 
-        userData , setUserData, handleRegister
+        userData , setUserData, handleRegister,handleLogin 
     }
 
     return(

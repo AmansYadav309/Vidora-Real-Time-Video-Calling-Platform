@@ -22,9 +22,6 @@ import { Snackbar } from '@mui/material';
 const defaultTheme = createTheme();
 
 export default function Authentication() {
-
-    
-
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [name, setName] = React.useState("");
@@ -44,8 +41,12 @@ export default function Authentication() {
             if (formState === 0) {
 
                 let result = await handleLogin(username, password)
-
-
+                console.log(result);
+                setUsername("");
+                setMessage(result);
+                setOpen(true);
+                setError("")
+                setPassword("")
             }
             if (formState === 1) {
                 let result = await handleRegister(name, username, password);
@@ -69,15 +70,15 @@ export default function Authentication() {
         "https://images.pexels.com/photos/4226140/pexels-photo-4226140.jpeg",
         "https://images.pexels.com/photos/4064696/pexels-photo-4064696.jpeg",
         "https://images.pexels.com/photos/4144288/pexels-photo-4144288.jpeg",
-        "https://www.pexels.com/photo/photo-of-professor-teahcing-his-student-6325984/",
-        "https://www.pexels.com/photo/man-having-a-virtual-meeting-6147390/",
-        "https://www.pexels.com/photo/a-woman-in-an-office-21405533/",
-        "https://www.pexels.com/photo/a-person-sitting-on-the-bed-4443189/",
-        "https://www.pexels.com/photo/man-using-laptop-on-table-against-white-background-257897/",
-        "https://www.pexels.com/photo/a-woman-doing-a-presentation-while-in-a-video-call-6930263/",
-        "https://www.pexels.com/photo/a-woman-sitting-at-the-table-6267023/",
-        "https://www.pexels.com/photo/woman-in-pink-dress-shirt-using-laptop-computer-6585963/",
-        "https://www.pexels.com/photo/woman-in-black-long-sleeve-shirt-holding-baby-and-a-smartphone-5970813"
+        "https://images.pexels.com/photos/6325984/pexels-photo-6325984.jpeg",
+        "https://images.pexels.com/photos/6147390/pexels-photo-6147390.jpeg",
+        "https://images.pexels.com/photos/21405533/pexels-photo-21405533.jpeg",
+        "https://images.pexels.com/photos/4443189/pexels-photo-4443189.jpeg",
+        "https://images.pexels.com/photos/257897/pexels-photo-257897.jpeg",
+        "https://images.pexels.com/photos/6930263/pexels-photo-6930263.jpeg",
+        "https://images.pexels.com/photos/6267023/pexels-photo-6267023.jpeg",
+        "https://images.pexels.com/photos/6585963/pexels-photo-6585963.jpeg/",
+        "https://images.pexels.com/photos/5970813/pexels-photo-5970813.jpeg"
     ]
 
 const randomImage =images[Math.floor(Math.random()*images.length)];
@@ -182,6 +183,8 @@ const randomImage =images[Math.floor(Math.random()*images.length)];
                 autoHideDuration={4000}
                 message={message}
                 onClose={() => setOpen(false)}
+                anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+
             />
 
         </ThemeProvider>
