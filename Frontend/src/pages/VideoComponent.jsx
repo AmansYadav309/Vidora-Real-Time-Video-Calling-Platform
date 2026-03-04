@@ -29,7 +29,7 @@ let [screenAvailable , SetScreenAvailable] = useState();
 let [messages , setMessages] = useState();
 let [message , setMessage] = useState();
 let [newMessages , setNewMessages] = useState();
-let [askForUsername , setAskForUsername] = useState("true");
+let [askForUsername , setAskForUsername] = useState(true);
 let [username , setUsername] = useState("");
 const videoRef = useRef([]);
 let [videos , setVideos] = useState();
@@ -79,7 +79,7 @@ useEffect(()=>{
  } , [])
 
 let getUserMediaSucess = (stream) => {
-    
+
 }
 
 
@@ -112,20 +112,20 @@ useEffect(()=> {
  }
 
     return (
-        // <div>
-        //     {askForUsername === true ? 
+        <div>
+            {askForUsername === true? 
             <div>
                 <h2>Enter into Lobby</h2>
-                <TextField id="outlined-basic" label="username"  variant="outlined" vlaue={username} onChange={(e)=>setUsername(e.target.value)} />
-                    <Button variant="contained">Connect </Button>
+                <TextField id="outlined-basic" label="username"  variant="outlined" value={username} onChange={(e)=>setUsername(e.target.value)} />
+                    <Button variant="contained" >Connect </Button>
                 <div>
                     <video ref={localVideoRef} autoPlay muted playsInline id="localVideo"></video>
                 </div>
 
             </div>
-        //     :<></>
-        //     } 
-        // </div>
+            :<> <p> videopage </p></>
+            } 
+        </div> 
     );
 }
 
